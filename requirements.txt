@@ -1,0 +1,8 @@
+streamlit
+pyresparser
+pdf2image
+spacy
+nltk
+requests
+
+git+https://github.com/explosion/spacymodels/releases/download/en_core_we_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
