@@ -32,8 +32,8 @@ st.subheader('Are you ready to start?')
 
 ### 1st User interaction ###
 
-## Choosing one of the Options
-options = st.multiselect('What you want to consider for your future?',
+## Choosing one of the possible industry options
+option = st.radio('What you want to consider for your future?',
      ['Computer Science/IT', 'Design', 'Engineering', 'Finance', 'Management', 'Media', 'Sales', 'Tourism'])
 
 ## Create empty space
@@ -43,7 +43,7 @@ st.write("##")
 
 ## Upload Button for CV
 received_file = st.file_uploader("Upload your Resume as a PDF File:", type="pdf")
-button = st.button("Get Your Resume Image")
+button = st.button("Extract CV information")
 
 ## Resume Image is Displayed
 if button and received_file is not None:
@@ -53,44 +53,52 @@ if button and received_file is not None:
             st.image(page, use_column_width=True)
 
 
-#### Results ####
-
-## Model's Results is Displayed
-#
-#
-#
-#
-
-
 ####################################################
 ######### Preprocessing Users Information ##########
 ####################################################
 
+## Message before the extraction of CV information
+
+st.write("This is the information from your Resume we are going to process:")
+
 #### Extract Text from User CV ####
 if button and received_file is not None:
     if received_file.type == "application/pdf":
-        #try:
+        try:
             file = ResumeParser(received_file).get_extracted_data()
             st.write (f"Experience: {file['experience']}; Skills: {file['skills']}")
-        #except:
-        #    st.write ("Sorry, we couldn't process your CV!")
+        except:
+            st.write ("Sorry, we couldn't process your CV!")
 
 
-import session_info
-session_info.show()
+####################################################
+################ Model Running #####################
+####################################################
 
+# API will run this preprocessing text block, put in the model and we'll have results
 
+####################################################
+############ Display Found Results #################
+####################################################
 
-## Resume Storage in GoogleCloud
-# storage_client = storage.Client()
-#bucket_name = "cv-directory"
-#bucket = storage_client.create_bucket(bucket_name)
+## Create one empty space
+st.write("##")
 
-#Connect Streamlit to Google Cloud Storage
-#Introduction. ...
-#Create a Google Cloud Storage bucket and add a file. ...
-#Enable the Google Cloud Storage API. ...
-#Create a service account and key file. ...
-#Add the key to your local app secrets. ...
-#Copy your app secrets to the cloud. ...
-#Add google-cloud-storage to your requirements file.
+### Display Model Results ###
+
+## Introduction text for model results
+st.write("Here they are! Your expected results:")
+
+## Results from model
+#
+#
+#
+#
+#
+
+## Create two empty spaces
+st.write("##")
+st.write("##")
+
+## Ending message
+st.write("Thank you for submitting your Resume!")
