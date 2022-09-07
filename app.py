@@ -34,7 +34,7 @@ st.subheader('Are you ready to start?')
 
 ## Choosing one of the possible industry options
 option = st.radio('What you want to consider for your future?',
-     ['Computer Science/IT', 'Design', 'Engineering', 'Finance', 'Management', 'Media', 'Sales', 'Tourism'])
+     ['Computer Science/IT', 'Management', 'Marketing', 'Sales', 'Tourism'])
 
 ## Create empty space
 st.write("##")
