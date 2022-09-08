@@ -3,7 +3,6 @@
 # pip install --upgrade google-cloud-storage
 # pip install nltk
 # pip install spacy==2.3.5
-# pip install https://github.com/explosion/spacymodels/releases/download/en_core_we_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
 # pip install pyresparser
 
 ####### Imports #######
@@ -11,7 +10,6 @@
 import streamlit as st
 from pdf2image import convert_from_bytes
 from pyresparser import ResumeParser
-#from google.cloud import storage
 
 ###################################
 ######### Streamlit Code ##########
