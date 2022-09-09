@@ -33,12 +33,14 @@ st.markdown('''
 ##
 ''')
 
+
 ### 1st User interaction ###
+
 
 ## Choosing one of the possible industry options
 
 option = st.selectbox('What you want to consider for your future?',
-                        ['Computer Science/IT',
+                        ['Choose career path',
                          'Data Science',
                          'Management',
                          'Marketing',
@@ -48,20 +50,20 @@ option = st.selectbox('What you want to consider for your future?',
 #option = st.radio('What you want to consider for your future?',
 #     ['Computer Science/IT', 'Data Science', 'Management', 'Marketing', 'Sales', 'Tourism'])
 
-if option == 'Computer Science/IT':
-    area_choice = 'ICT'
+
 if option == 'Data Science':
     area_choice = 'data science'
-if option == 'Management':
+elif option == 'Management':
     area_choice = 'management'
-if option == 'Marketing':
+elif option == 'Marketing':
     area_choice = 'marketing'
-if option == 'Tourism':
+elif option == 'Tourism':
     area_choice = 'tourism'
-if option == 'Sales':
+elif option == 'Sales':
     area_choice = 'Tourism'
-if option == 'Choose career':
-    st.write('Please choose a career path.')
+else:
+    area_choice = 0
+
 
 ## Create empty space
 st.write("##")
@@ -70,8 +72,10 @@ st.write("##")
 
 
 describe_your_job = st.text_input('Describe your job:', 'Management Consulting in FREESCG - Food Consultant - Management consultancy specialized in food and beverage - Consulting services for restaurants, bars and similar - Project developed with specialization to each client through a diagnosis and an action plan put into practice, with analysis of the obtained results - Areas of expertise: Financial, Logistics, Human Resources, Marketing, Administrative Backoffice, Production and Operation Analysis and Management of Purchasing and Logistics in MADPIZZA - Evaluation, restructuring and monitoring of existing logistics department - Establish two-way communication procedures with an emphasis on motivation and teamwork - Consumption forecast - Supplier assessment, prospecting and monitoring.')
-button_2 = st.button('Enter description')
-if button_2 is not None and describe_your_job is not None:
+button_2 = st.button('Find your next job!')
+
+
+if button_2 and describe_your_job is not None and area_choice in ['data science', 'management', 'marketing', 'sales', 'tourism']:
 
 
     url_api = 'https://job-predictor-ba4corpqra-no.a.run.app/job_titles'
@@ -79,7 +83,7 @@ if button_2 is not None and describe_your_job is not None:
     params = {
         'describe_your_job': describe_your_job,
         'area_choice': area_choice
-}
+    }
 
     response = requests.get(url=url_api, params=params).json()
 
