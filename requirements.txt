@@ -1,10 +1,2 @@
 streamlit
-pyresparser
-pdf2image
-spacy
-nltk
 requests
-poppler-utils
-python-poppler
-cmake
-spacy-download
