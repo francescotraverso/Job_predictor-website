@@ -60,7 +60,7 @@ elif option == 'Marketing':
 elif option == 'Tourism':
     area_choice = 'tourism'
 elif option == 'Sales':
-    area_choice = 'Tourism'
+    area_choice = 'sales'
 else:
     area_choice = 0
 
